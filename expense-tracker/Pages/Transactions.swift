@@ -14,7 +14,6 @@ struct Transactions: View {
     var choices  = ["Income", "Expense"]
     
     var body: some View {
-        NavigationView {
             VStack {
                 Picker("Income or Expense",
                        selection: $selected) {
@@ -51,11 +50,10 @@ struct Transactions: View {
                         y: .value("Value", 900)
                     )
                 }
-                .frame(height: 300)
+                .foregroundColor(selected == "Income" ? .green : .red)
             }
-            .padding()
-            .navigationTitle("Transactions")
-        }
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+            .padding(20)
     }
 }
 
